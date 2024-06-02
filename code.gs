@@ -24,3 +24,8 @@ function saveApiKey() {
     .saveApiKey(apiKey);
   google.script.host.close();
 }
+
+// Function to get the saved API key
+function getApiKey() {
+  return PropertiesService.getUserProperties().getProperty('HUNTER_API_KEY') || '';
+}
