@@ -2,6 +2,46 @@
 <html>
 <head>
   <base target="_top">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    p {
+      color: #555;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    #existingApiKey {
+      color: #888;
+      font-size: small;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    input[type="button"] {
+      background-color: #888;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    input[type="button"]:hover {
+      background-color: #555;
+    }
+  </style>
   <script>
     function loadApiKey() {
       google.script.run.withSuccessHandler(function(apiKey) {
@@ -17,11 +57,13 @@
   </script>
 </head>
 <body>
+  <h1>Icypeas Add-on</h1>
+  <p>Find emails from a prospect list</p>
   <form>
     <label id="existingApiKey">Loading...</label><br><br>
     <label for="apiKey">Hunter.io API Key:</label>
     <input type="text" id="apiKey" name="apiKey"><br><br>
-    <input type="button" value="Save" onclick="saveApiKey()">
+    <input type="button" value="Connect" onclick="saveApiKey()">
   </form>
 </body>
 </html>
