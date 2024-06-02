@@ -15,14 +15,8 @@ function showApiKeyDialog() {
 }
 
 // Function to save the API key of Hunter.IO (has to be sent manually by the user)
-function saveApiKey() {
-  var apiKey = document.getElementById('apiKey').value;
-  google.script.run
-    .withSuccessHandler(function() {
-      alert('API key saved successfully!');
-    })
-    .saveApiKey(apiKey);
-  google.script.host.close();
+function saveApiKey(apiKey) {
+  PropertiesService.getUserProperties().setProperty('HUNTER_API_KEY', apiKey);
 }
 
 // Function to get the saved API key

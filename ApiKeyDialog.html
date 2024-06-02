@@ -50,8 +50,10 @@
     }
     function saveApiKey() {
       var apiKey = document.getElementById('apiKey').value;
-      google.script.run.saveApiKey(apiKey);
-      google.script.host.close();
+      google.script.run.withSuccessHandler(function() {
+        document.getElementById('existingApiKey').textContent = 'Existing API Key: ' + apiKey;
+        alert('API key saved successfully!');
+      }).saveApiKey(apiKey);
     }
     window.onload = loadApiKey;
   </script>
